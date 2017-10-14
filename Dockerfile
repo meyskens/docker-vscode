@@ -4,7 +4,8 @@ RUN apt-get update && apt-get install -y \
         curl \
 	apt-transport-https \
 	gpg \
-	git
+	git \
+    sudo
 
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg &&\
     mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg &&\
@@ -12,5 +13,5 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 
 RUN apt-get update && apt-get install -y code
 
-CMD su user -c "code -w"
+CMD sudo -u user code --wait
 
