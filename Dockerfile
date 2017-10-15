@@ -13,5 +13,5 @@ RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > mic
 
 RUN apt-get update && apt-get install -y code
 
-CMD sudo -u user code --wait
+CMD sudo -u user code --verbose
 
